@@ -12,16 +12,28 @@
 </head>
 <body>
 
+  <!-- variaveis de conteudo -->
   <?php
-    $cursos = [
-      "Full Stack" => ["full.jpeg", "Curso de desenvolvimento web", 41.99],
-      "Marketing Digital" => ["marketing.jpg", "Curso de marketing", 51.99],
-      "User Experience" => ["ux.png", "Curso de Experiência de usuário", 71.99],
-      "Mobile Android" => ["android.png", "Curso de desenvolvimento android", 31.99]
-    ];
+    $nomeCurso1 = "Full Stack";
+    $descricaoCurso1 = "Curso de desenvolvimento web";
+    $imagemCurso1 = "full.jpeg";
+    $precoCurso1 = 49.99;
+
+    $nomeCurso2 = "Marketing Digital";
+    $descricaoCurso2 = "Curso de Marketing digital... não o orgânico";
+    $imagemCurso2 = "marketing.jpg";
+    $precoCurso2 = 71.99;
+
+    $usuario = [
+      "nome" => "Thomaz Staziak",
+      "email" => "thomaz@digitalhouse.com",
+      "senha" => "123456",
+      "nivelAcesso" => mt_rand(0, 1)
+    ]
    ?>
 
   <main>
+    <!-- navBar -->
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -29,34 +41,65 @@
             <span>Cursos</span>
           </a>
         </div>
-
-        <form class="navbar-form navbar-left" role="search">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Pesquisar...">
-          </div>
-          <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-        </form>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <?php if ($usuario["nivelAcesso"] == 1): ?>
+            <ul class="nav navbar-nav">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ações <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Adicionar Produto</a></li>
+                  <li><a href="#">Editar Produto</a></li>
+                </ul>
+              </li>
+            </ul>
+          <?php endif; ?>
+          <form class="navbar-form navbar-left">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Pesquisar...">
+            </div>
+            <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+          </form>
+          <p class="navbar-text navbar-right">
+            Logado como
+            <strong>
+              <a href="#" class="navbar-link"><?php echo $usuario["nome"] ?></a>
+            </strong>
+          </p>
+        </div>
       </div>
     </nav>
 
+    <!-- produtos -->
     <div class="container">
       <div class="row">
-        <?php foreach ($cursos as $nome => $infos) : ?>
-            <div class="col-xs-4 col-sm-6 col-md-6 col-lg-6">
-              <div class="thumbnail">
-                <img src="<?php echo "assets/img/".$infos[0] ?>" alt="<?php echo "Foto " . $cursos["nome"][$i]; ?>">
-                <div class="caption">
-                  <h3><?php echo $nome  ?></h3>
-                  <p><?php echo $infos[1]  ?></p>
-                  <p><strong>R$ <?php echo $infos[2]  ?> </strong></p>
-                  <a href="#" class="btn btn-primary" role="button">Comprar</a>
-                </div>
-              </div>
+        <div class="col-xs-4 col-sm-6 col-md-6 col-lg-6">
+          <div class="thumbnail">
+            <img src="<?php echo "assets/img/$imagemCurso1"; ?>" alt="Full Stack">
+            <div class="caption">
+              <h3><?php echo $nomeCurso1; ?></h3>
+              <p><?php echo $descricaoCurso1; ?></p>
+              <p><strong>R$ <?php echo $precoCurso1; ?> </strong></p>
+              <a href="#" class="btn btn-primary" role="button">Comprar</a>
             </div>
-          <?php endforeach; ?>
+          </div>
+        </div>
+
+        <div class="col-xs-4 col-sm-6 col-md-6 col-lg-6">
+          <div class="thumbnail">
+            <img src="<?php echo "assets/img/$imagemCurso2"; ?>" alt="Marketing Digital">
+            <div class="caption">
+              <h3><?php echo $nomeCurso2; ?></h3>
+              <p><?php echo $descricaoCurso2; ?></p>
+              <p><strong>R$ <?php echo $precoCurso2; ?> </strong></p>
+              <a href="#" class="btn btn-primary" role="button">Comprar</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </main>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" charset="utf-8"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 </html>

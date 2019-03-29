@@ -28,7 +28,7 @@
       "nome" => "Thomaz Staziak",
       "email" => "thomaz@digitalhouse.com",
       "senha" => "123456",
-      "nivelAcesso" => 0
+      "nivelAcesso" => mt_rand(0, 1)
     ]
    ?>
 
