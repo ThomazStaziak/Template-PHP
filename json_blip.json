@@ -1,0 +1,40 @@
+headers: {
+  "uri": "https://msging.net/commandsHTTP/1.1",
+  "method": "POST",
+  "Content-Type": "application/json",
+  "Authorization": "key blablablabla"
+}
+
+{
+  "id": "blablablabla",
+  "to": "postmaster@wa.gw.msging.net",
+  "method": "get",
+  "uri": "lime://wa.gw.msging.net/accounts/+5511999999999"
+}
+
+headers: {
+  "uri": "https://msging.net/messagesHTTP/1.1",
+  "method": "POST",
+  "Content-Type": "application/json",
+  "Authorization": "key blablablabla"
+}
+
+{
+  "id": "blablablabla",
+  "to": "prevAnswer",
+  "type": "application/json",
+  "content" : {
+    "type": "hsm",
+    "hsm": {
+      "namespace": "yourNamespace",
+      "element_name": "account",
+      "fallback_lg": "pt",
+      "fallback_lc": "BR",
+      "localizable_params": [
+        {
+          "default": "BLiPPer"
+        }
+      ]
+    }
+  }
+}
