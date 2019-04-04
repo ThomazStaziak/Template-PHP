@@ -1,5 +1,11 @@
 .thumbnail a>img,
 .thumbnail>img {
-  width: 500px;
+  width: 600px;
   height: 300px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
